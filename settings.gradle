@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':RxTools-library', ':module_login', ':module_main', ':module_update', ':libcommon', ':libcommon', ':libsrc'
