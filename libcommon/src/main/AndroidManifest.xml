@@ -3,7 +3,7 @@
     package="top.lixb.libcommon">
 
     <application>
-        <activity android:name=".base.BaseRecyclerActivity"></activity>
+        <activity android:name=".base.BaseRecyclerViewActivity"></activity>
     </application>
 
 </manifest>

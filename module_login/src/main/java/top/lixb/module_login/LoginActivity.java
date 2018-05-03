@@ -34,13 +34,15 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import java.util.ArrayList;
 import java.util.List;
 
+import top.lixb.libsrc.router.RouteTable;
+
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via email/password.
  */
 
-@Route(path = "/login/index")
+@Route(path = RouteTable.loginIndex)
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
     /**

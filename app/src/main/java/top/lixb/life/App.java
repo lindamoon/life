@@ -7,8 +7,5 @@ import com.vondear.rxtools.RxTool;
 import top.lixb.libcommon.base.BaseApplication;
 
 public class App extends BaseApplication {
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
+
 }
