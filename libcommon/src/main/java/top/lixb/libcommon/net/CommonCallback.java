@@ -1,28 +1,17 @@
 package top.lixb.libcommon.net;
 
-import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-import okhttp3.ResponseBody;
-import rx.Subscriber;
 
-public class CommonCallback extends Subscriber<ResponseBody> {
-
+public abstract class CommonCallback implements Observer {
     @Override
-    public void onCompleted() {
+    public void onSubscribe(Disposable d) {
 
     }
 
     @Override
-    public void onError(Throwable e) {
+    public void onComplete() {
 
     }
-
-
-    @Override
-    public void onNext(ResponseBody responseBody) {
-
-    }
-
 
 }

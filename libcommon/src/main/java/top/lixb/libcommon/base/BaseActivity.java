@@ -1,5 +1,8 @@
 package top.lixb.libcommon.base;
 
+import android.arch.lifecycle.ViewModelProviders;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,14 +14,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import java.lang.reflect.ParameterizedType;
+
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 import top.lixb.libcommon.R;
 
-public class BaseActivity extends SwipeBackActivity {
+public abstract class BaseActivity<V extends ViewDataBinding,VM extends BaseViewModel> extends SwipeBackActivity {
 
     private LinearLayout rootLayout;
     private Toolbar mToolbar;
     private TextView mTitle;
+    protected V mBinding;
+    protected VM mViewModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,8 +38,14 @@ public class BaseActivity extends SwipeBackActivity {
         // 这句很关键，注意是调用父类的方法
         super.setContentView(R.layout.common_activity_base);
         initToolbar();
-
+        mViewModel = ViewModelProviders.of(this).get(getVMClass());
     }
+
+    protected Class<VM> getVMClass() {
+        Class<VM> tClass = (Class<VM>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        return tClass;
+    }
+
     @Override
     public void setContentView(int layoutId) {
         setContentView(View.inflate(this, layoutId, null));
@@ -46,7 +59,12 @@ public class BaseActivity extends SwipeBackActivity {
         }
         rootLayout.addView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         initToolbar();
+        mBinding = DataBindingUtil.bind(view);
+        initBinding(mBinding);
+        mViewModel.onCreate();
     }
+
+    protected abstract void initBinding(V binding);
 
     private void initToolbar() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -59,7 +77,12 @@ public class BaseActivity extends SwipeBackActivity {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         }
-
+        findViewById(R.id.common_base_iv_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         mTitle = mToolbar.findViewById(R.id.common_base_tv_title);
     }
 
@@ -72,7 +95,9 @@ public class BaseActivity extends SwipeBackActivity {
     }
 
 
-
-
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mViewModel.onDestroy();
+    }
 }

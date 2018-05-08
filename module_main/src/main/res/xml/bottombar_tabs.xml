@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs xmlns:android="http://schemas.android.com/apk/res/android">
+    <tab
+        id="@+id/tab_0"
+        title="主页" />
+    <tab
+        id="@+id/tab_1"
+        title="其他" />
+    <tab
+        id="@+id/tab_2"
+        title="个人中心" />
+</tabs>
