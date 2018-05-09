@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.vondear.rxtools.RxNetTool;
 import com.vondear.rxtools.view.RxToast;
 
@@ -22,10 +23,9 @@ import top.lixb.libcommon.net.INet;
 import top.lixb.libcommon.net.NetApiHelper;
 
 public class BaseViewModel extends ViewModel implements IBaseViewModel,INet {
-    protected Context mContext;
 
-    public BaseViewModel(Context context) {
-        mContext = context;
+    public BaseViewModel() {
+
     }
 
 
@@ -46,8 +46,8 @@ public class BaseViewModel extends ViewModel implements IBaseViewModel,INet {
 
 
     @Override
-    public void performGetRequest(String url, Map<String, String> params, CommonCallback callback) {
-        NetApiHelper.createNetApi()
+    public void performGetRequest(String baseUrl,String url, Map<String, String> params, CommonCallback callback) {
+        NetApiHelper.createNetApi(baseUrl)
                 .commonGetRequest(url, params, NetApiHelper.getCommonHeader())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -56,8 +56,8 @@ public class BaseViewModel extends ViewModel implements IBaseViewModel,INet {
     }
 
     @Override
-    public void performPostRequest(String url, Map<String, String> params, CommonCallback callback) {
-        NetApiHelper.createNetApi()
+    public void performPostRequest(String baseUrl,String url, Map<String, String> params, CommonCallback callback) {
+        NetApiHelper.createNetApi(baseUrl)
                 .commonPostRequest(url, params, NetApiHelper.getCommonHeader())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -65,7 +65,4 @@ public class BaseViewModel extends ViewModel implements IBaseViewModel,INet {
         ;
     }
 
-    protected <T extends Activity> void startActivity(Class<T> classzz) {
-        mContext.startActivity(new Intent(mContext,classzz));
-    }
 }

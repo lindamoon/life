@@ -5,6 +5,7 @@ import android.databinding.ObservableArrayList;
 import android.databinding.ObservableField;
 import android.view.View;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.vondear.rxtools.RxLogTool;
 
 import java.io.IOException;
@@ -20,14 +21,12 @@ import top.lixb.libcommon.net.CommonCallback;
 import top.lixb.libcommon.net.NetApi;
 import top.lixb.libcommon.net.ParamsBuilder;
 import top.lixb.libcommon.net.NetApiHelper;
+import top.lixb.libsrc.router.RouteTable;
 
 public class HomeViewModel extends BaseViewModel {
 
     public ObservableField<String> txt = new ObservableField<>();
     public ObservableArrayList<String> tabs = new ObservableArrayList<>();
-    public HomeViewModel(Context context) {
-        super(context);
-    }
 
     @Override
     public void onCreate() {
@@ -38,7 +37,6 @@ public class HomeViewModel extends BaseViewModel {
     }
 
     public void clickToApi(View view) {
-        startActivity(ApiActivity.class);
+        ARouter.getInstance().build(RouteTable.mainApi).navigation();
     }
-
 }

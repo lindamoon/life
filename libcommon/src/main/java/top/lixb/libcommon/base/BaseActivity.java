@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 
 import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 import top.lixb.libcommon.R;
@@ -38,11 +39,12 @@ public abstract class BaseActivity<V extends ViewDataBinding,VM extends BaseView
         // 这句很关键，注意是调用父类的方法
         super.setContentView(R.layout.common_activity_base);
         initToolbar();
+        Class<VM> vmClass = getVMClass();
         mViewModel = ViewModelProviders.of(this).get(getVMClass());
     }
 
     protected Class<VM> getVMClass() {
-        Class<VM> tClass = (Class<VM>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        Class<VM> tClass = (Class<VM>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[1];
         return tClass;
     }
 
@@ -61,6 +63,7 @@ public abstract class BaseActivity<V extends ViewDataBinding,VM extends BaseView
         initToolbar();
         mBinding = DataBindingUtil.bind(view);
         initBinding(mBinding);
+        mBinding.executePendingBindings();
         mViewModel.onCreate();
     }
 

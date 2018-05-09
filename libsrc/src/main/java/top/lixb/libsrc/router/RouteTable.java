@@ -23,4 +23,8 @@ public class RouteTable {
     public static final String updateIndex = "/update/index";
 
 
+    /**
+     * api
+     */
+    public static final String mainApi = "/main/api";
 }

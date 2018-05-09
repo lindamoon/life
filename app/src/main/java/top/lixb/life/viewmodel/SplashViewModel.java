@@ -13,9 +13,6 @@ import top.lixb.libsrc.helper.UserHelper;
 import top.lixb.libsrc.router.RouteTable;
 
 public class SplashViewModel extends BaseViewModel {
-    public SplashViewModel(Context context) {
-        super(context);
-    }
 
     @Override
     public void onCreate() {

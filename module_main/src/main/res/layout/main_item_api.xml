@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <data>
+
+        <import type="top.lixb.base.module_main.R" />
+
+        <variable
+            name="item"
+            type="top.lixb.base.module_main.viewmodel.ItemViewModel" />
+
+    </data>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

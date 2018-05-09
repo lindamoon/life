@@ -2,4 +2,7 @@
 
     <string name="main_btn_confirm">确定</string>
     <string name="main_tv_txt">我是农民工</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

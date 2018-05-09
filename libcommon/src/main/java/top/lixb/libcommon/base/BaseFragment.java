@@ -38,7 +38,7 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
 
 
     protected Class<VM> getVMClass() {
-        Class<VM> tClass = (Class<VM>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        Class<VM> tClass = (Class<VM>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[1];
         return tClass;
     }
 

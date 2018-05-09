@@ -3,6 +3,7 @@ package top.lixb.libcommon.net;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -14,17 +15,33 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import top.lixb.libcommon.config.CommonConfig;
 
 public class NetApiHelper {
-    private static NetApi mNetApi;
-    public static NetApi createNetApi() {
+    private static Map<String, NetApi> apiMap = new TreeMap<>();
+    private static OkHttpClient mClient;
+
+    static {
         OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
-        OkHttpClient client = builder.build();
+        mClient = builder.build();
+    }
+
+    public static NetApi createNetApi(String baseUrl) {
+        NetApi netApi = apiMap.get(baseUrl);
+        if (null != netApi) {
+            return netApi;
+        }
+
         Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .client(client)
+                .client(mClient)
                 .build();
-        mNetApi = retrofit.create(NetApi.class);
-        return mNetApi;
+        netApi = retrofit.create(NetApi.class);
+        apiMap.put(baseUrl, netApi);
+        return netApi;
+    }
+
+    public static NetApi createJokeApi() {
+        return createNetApi(CommonConfig.url_joke);
     }
 
     public static Map<String, String> getCommonHeader() {

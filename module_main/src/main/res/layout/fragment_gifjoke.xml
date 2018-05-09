@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="gifjoke"
+            type="top.lixb.base.module_main.viewmodel.GifJokeViewModel" />
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/srefresh"
+            app:srlEnableRefresh="false"
+            binding:onloadmoreListener="@{gifjoke.loadmoreListener}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:adapter="@{gifjoke.adapter}"
+            app:itemBinding="@{gifjoke.singleItem}"
+            app:items="@{gifjoke.items}"
+            app:viewHolder="@{gifjoke.viewHolder}"
+            app:layoutManager="@{LayoutManagers.linear()}" />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </LinearLayout>
+</layout>
