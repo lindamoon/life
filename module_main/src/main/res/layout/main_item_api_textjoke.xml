@@ -10,25 +10,51 @@
     </data>
 
     <LinearLayout
+        android:padding="10dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:text="@{item.ct}"
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="@{item.title}"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="12dp"
+                android:textColor="#888888"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:text="@{item.ct}"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
 
         <TextView
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:text="@{item.title}"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:lineSpacingExtra="3dp"
+            android:textSize="14dp"
+            android:textColor="@color/blue"
+            android:lineSpacingExtra="10dp"
             binding:htmlText="@{item.text}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <View
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
     </LinearLayout>
 </layout>

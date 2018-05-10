@@ -6,18 +6,18 @@ public class CommonConfig {
     /**
      * 驾考知识库查询
      */
-    public static final String url_driverexam = "http://jisujiakao.market.alicloudapi.com/driverexam/query/";
+    public static final String url_driverexam = "http://jisujiakao.market.alicloudapi.com/";
 
 
     /**
      * 笑话
      */
-    public static final String url_joke = "https://ali-joke.showapi.com/";
+    public static final String url_joke = "http://ali-joke.showapi.com/";
 
 
     /**
      * 新闻头条
      */
-    public static final String url_news = "http://toutiao-ali.juheapi.com/toutiao/index/";
+    public static final String url_news = "http://toutiao-ali.juheapi.com/";
     public static String pageSize = "30";
 }

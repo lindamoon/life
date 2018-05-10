@@ -3,6 +3,9 @@ package top.lixb.life;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+
 import top.lixb.libcommon.base.BaseActivity;
 import top.lixb.life.databinding.ActivitySplashBinding;
 import top.lixb.life.viewmodel.SplashViewModel;
@@ -31,6 +34,7 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding,SplashVie
         setContentView(R.layout.activity_splash);
         setNoTitle();
         setSwipeBackEnable(false);
+
     }
 
     @Override

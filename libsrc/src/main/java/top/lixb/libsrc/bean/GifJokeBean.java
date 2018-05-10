@@ -1,6 +1,13 @@
 package top.lixb.libsrc.bean;
 
+import android.annotation.SuppressLint;
+import android.view.View;
+import android.widget.ImageView;
+
 import java.util.List;
+
+import top.lixb.libcommon.glide.GlideApp;
+import top.lixb.libcommon.helper.GlideHelper;
 
 public class GifJokeBean {
 
@@ -43,7 +50,10 @@ public class GifJokeBean {
             public String img;
             public String title;
             public int type;
+
         }
     }
+
+
 }
 

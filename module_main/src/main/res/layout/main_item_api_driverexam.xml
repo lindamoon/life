@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:binding="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="item"
+            type="top.lixb.libsrc.bean.DriverexamBean.ResultBean.ListBean" />
+
+        <import type="android.view.View" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="@{item.question}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            binding:imageUrl="@{item.pic}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:visibility="@{item.answerIsTrueOrFalse?View.GONE:View.VISIBLE}"
+            android:text="@{item.option1}"
+            android:textSize="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:visibility="@{item.answerIsTrueOrFalse?View.GONE:View.VISIBLE}"
+            android:text="@{item.option2}"
+            android:textSize="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:visibility="@{item.answerIsTrueOrFalse?View.GONE:View.VISIBLE}"
+            android:text="@{item.option3}"
+            android:textSize="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:visibility="@{item.answerIsTrueOrFalse?View.GONE:View.VISIBLE}"
+            android:text="@{item.option4}"
+            android:textSize="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:text='@{item.showanser?"隐藏答案":"显示答案"}'
+            android:padding="5dp"
+            android:onClick="@{item.changeShowanser}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:visibility="@{item.showanser?View.VISIBLE:View.GONE}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text='@{"正确答案:"+item.answer}'
+                android:textSize="14dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="14dp"
+                android:text="@{item.explain}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>
