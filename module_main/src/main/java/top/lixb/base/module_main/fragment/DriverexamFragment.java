@@ -2,16 +2,13 @@ package top.lixb.base.module_main.fragment;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.widget.ArrayAdapter;
-import android.widget.SimpleAdapter;
 
 import top.lixb.base.module_main.R;
 import top.lixb.base.module_main.databinding.FragmentDriverexamBinding;
 import top.lixb.base.module_main.viewmodel.DriverexamViewModel;
-import top.lixb.libcommon.base.BaseFragment;
+import top.lixb.libcommon.binding.AbsBindingFragment;
 
-public class DriverexamFragment extends BaseFragment<FragmentDriverexamBinding,DriverexamViewModel> {
+public class DriverexamFragment extends AbsBindingFragment<FragmentDriverexamBinding,DriverexamViewModel> {
     public static DriverexamFragment newInstance() {
         Bundle args = new Bundle();
         DriverexamFragment fragment = new DriverexamFragment();
@@ -27,6 +24,5 @@ public class DriverexamFragment extends BaseFragment<FragmentDriverexamBinding,D
     @Override
     protected void initBinding(FragmentDriverexamBinding bind) {
         bind.setDriverexam(mViewModel);
-
     }
 }

@@ -18,11 +18,11 @@ import top.lixb.base.module_main.fragment.PicJokeFragment;
 import top.lixb.base.module_main.fragment.NewsFragment;
 import top.lixb.base.module_main.fragment.TextJokeFragment;
 import top.lixb.base.module_main.viewmodel.ApiViewModel;
-import top.lixb.libcommon.base.BaseActivity;
+import top.lixb.libcommon.binding.AbsBindingActivity;
 import top.lixb.libsrc.router.RouteTable;
 
 @Route(path = RouteTable.mainApi)
-public class ApiActivity extends BaseActivity<ActivityApiBinding,ApiViewModel> {
+public class ApiActivity extends AbsBindingActivity<ActivityApiBinding,ApiViewModel> {
 
     private List<Fragment> mFragments = new ArrayList<Fragment>(){
         {

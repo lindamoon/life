@@ -9,6 +9,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import com.vondear.rxtools.RxLogTool;
+
 import java.util.List;
 
 public class DriverexamBean {
@@ -60,41 +62,46 @@ public class DriverexamBean {
             public String option2;
             public String option3;
             public String option4;
+
+            public String getAnswer() {
+                return answer;
+            }
+
+            public void setAnswer(String answer) {
+                this.answer = answer;
+                RxLogTool.e("setAnswer "+answer);
+            }
+
             public String answer;
             public String explain;
             public String pic;
             public String type;
+
+
 
             /**
              * 是否显示答案
              */
             public ObservableBoolean showanser = new ObservableBoolean(false);
 
-            {
-                addOnPropertyChangedCallback(new OnPropertyChangedCallback() {
-                    @Override
-                    public void onPropertyChanged(Observable sender, int propertyId) {
-                        updateFlag();
-                    }
-                });
-            }
 
 
 
-
-
-            public boolean updateFlag() {
-                if (!TextUtils.isEmpty(answer)) {
-                    if (answer.contains("对") || answer.contains("错")) {
-                        answerIsTrueOrFalse.set(true);
-                        return true;
-                    }
-                }
-                answerIsTrueOrFalse.set(false);
-                return false;
-            }
-
-            public ObservableBoolean answerIsTrueOrFalse = new ObservableBoolean(updateFlag());
+//
+//
+//
+//            public boolean updateFlag() {
+//                if (!TextUtils.isEmpty(answer)) {
+//                    if (answer.contains("对") || answer.contains("错")) {
+//                        answerIsTrueOrFalse.set(true);
+//                        return true;
+//                    }
+//                }
+//                answerIsTrueOrFalse.set(false);
+//                return false;
+//            }
+//
+//            public ObservableBoolean answerIsTrueOrFalse = new ObservableBoolean(updateFlag());
 
             public void changeShowanser(View view) {
                 showanser.set(!showanser.get());

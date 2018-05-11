@@ -27,4 +27,6 @@ public class RouteTable {
      * api
      */
     public static final String mainApi = "/main/api";
+    public static final String mainWeb = "/main/web";
+
 }

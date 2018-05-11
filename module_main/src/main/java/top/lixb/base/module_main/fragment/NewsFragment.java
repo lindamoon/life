@@ -2,14 +2,13 @@ package top.lixb.base.module_main.fragment;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 
 import top.lixb.base.module_main.R;
 import top.lixb.base.module_main.databinding.FragmentNewToutiaoBinding;
 import top.lixb.base.module_main.viewmodel.ToutiaoViewModel;
-import top.lixb.libcommon.base.BaseFragment;
+import top.lixb.libcommon.binding.AbsBindingFragment;
 
-public class NewsFragment extends BaseFragment<FragmentNewToutiaoBinding,ToutiaoViewModel> {
+public class NewsFragment extends AbsBindingFragment<FragmentNewToutiaoBinding,ToutiaoViewModel> {
     public static NewsFragment newInstance() {
         Bundle args = new Bundle();
         NewsFragment fragment = new NewsFragment();

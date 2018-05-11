@@ -1,6 +1,6 @@
 package top.lixb.libsrc.bean;
 
-import top.lixb.libcommon.base.IBindingItem;
+import top.lixb.libcommon.binding.IBindingItem;
 
 public class ItemMainHomeMenu implements IBindingItem {
     public String title;

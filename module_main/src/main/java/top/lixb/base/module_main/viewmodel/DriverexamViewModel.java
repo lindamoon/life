@@ -2,15 +2,17 @@ package top.lixb.base.module_main.viewmodel;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.databinding.Observable;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableList;
 import android.databinding.ViewDataBinding;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.google.gson.Gson;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.vondear.rxtools.RxLogTool;
 
 import me.tatarka.bindingcollectionadapter2.BindingListViewAdapter;
@@ -18,14 +20,13 @@ import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter;
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 import top.lixb.base.module_main.R;
 import top.lixb.base.module_main.BR;
-import top.lixb.libcommon.base.BaseViewModel;
+import top.lixb.libcommon.binding.BindingViewModel;
 import top.lixb.libcommon.config.CommonConfig;
 import top.lixb.libcommon.net.CommonCallback;
 import top.lixb.libcommon.net.ParamsBuilder;
 import top.lixb.libsrc.bean.DriverexamBean;
-import top.lixb.libsrc.bean.PicJokeBean;
 
-public class DriverexamViewModel extends BaseViewModel {
+public class DriverexamViewModel extends BindingViewModel {
 
     public static final String SORT_NORMAL = "正常排序";
     public static final String SORT_RAND = "随机排序";
@@ -152,6 +153,25 @@ public class DriverexamViewModel extends BaseViewModel {
         }
     }
 
+    public OnLoadMoreListener loadmoreListener = new OnLoadMoreListener() {
+        @Override
+        public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+            mRefreshLayout = refreshLayout;
+            pagenum = String.valueOf(Integer.valueOf(pagenum) + 1);
+            requestData();
+        }
+    };
+
+    public OnRefreshListener refreshListener = new OnRefreshListener() {
+        @Override
+        public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+            mRefreshLayout = refreshLayout;
+            driveritems.clear();
+            pagenum = "1";
+            requestData();
+        }
+    };
+
     private void requestData() {
         performGetRequest(CommonConfig.url_driverexam, "driverexam/query", new ParamsBuilder()
                 .addP("pagenum", pagenum)
@@ -165,11 +185,21 @@ public class DriverexamViewModel extends BaseViewModel {
                 RxLogTool.e("driver"+response);
                 DriverexamBean driverexamBean = new Gson().fromJson(response, DriverexamBean.class);
                 driveritems.addAll(driverexamBean.result.list);
+                if (null != mRefreshLayout) {
+                    if (driverexamBean.result.list.size() == 0) {
+                        mRefreshLayout.setNoMoreData(true);
+                    }
+                    mRefreshLayout.finishLoadMore(2000);
+                    mRefreshLayout.finishRefresh(2000);
+                }
             }
 
             @Override
             public void onError(Throwable e) {
-                
+                if (null != mRefreshLayout) {
+                    mRefreshLayout.finishRefresh(false);
+                    mRefreshLayout.finishLoadMore(false);
+                }
             }
         });
     }

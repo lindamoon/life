@@ -15,13 +15,13 @@ import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter;
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 import top.lixb.base.module_main.R;
 import top.lixb.base.module_main.BR;
-import top.lixb.libcommon.base.BaseViewModel;
+import top.lixb.libcommon.binding.BindingViewModel;
 import top.lixb.libcommon.config.CommonConfig;
 import top.lixb.libcommon.net.CommonCallback;
 import top.lixb.libcommon.net.ParamsBuilder;
 import top.lixb.libsrc.bean.PicJokeBean;
 
-public class PicJokeViewModel extends BaseViewModel {
+public class PicJokeViewModel extends BindingViewModel {
 
     private Gson mGson;
     private String maxResult = CommonConfig.pageSize;

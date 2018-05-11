@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -56,6 +57,8 @@
         </LinearLayout>
 
         <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            binding:onloadmoreListener="@{driverexam.loadmoreListener}"
+            binding:onrefreshListener="@{driverexam.refreshListener}"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

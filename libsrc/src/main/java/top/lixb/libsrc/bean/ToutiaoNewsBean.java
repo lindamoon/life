@@ -1,6 +1,12 @@
 package top.lixb.libsrc.bean;
 
+import android.view.View;
+
+import com.alibaba.android.arouter.launcher.ARouter;
+
 import java.util.List;
+
+import top.lixb.libsrc.router.RouteTable;
 
 public class ToutiaoNewsBean {
 
@@ -43,6 +49,10 @@ public class ToutiaoNewsBean {
             public String thumbnail_pic_s;
             public String thumbnail_pic_s02;
             public String thumbnail_pic_s03;
+
+            public void clickToWeb(View view) {
+                ARouter.getInstance().build(RouteTable.mainWeb).withString("title", title).withString("url", url).navigation();
+            }
         }
     }
 }

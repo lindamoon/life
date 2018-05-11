@@ -4,13 +4,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-
-import top.lixb.libcommon.base.BaseActivity;
+import top.lixb.libcommon.binding.AbsBindingActivity;
 import top.lixb.life.databinding.ActivitySplashBinding;
 import top.lixb.life.viewmodel.SplashViewModel;
 
-public class SplashActivity extends BaseActivity<ActivitySplashBinding,SplashViewModel> {
+public class SplashActivity extends AbsBindingActivity<ActivitySplashBinding,SplashViewModel> {
 
     private static final int MSG_FINISH = 101;
     private final int SHOW_TIME = 3000;

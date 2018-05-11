@@ -1,10 +1,8 @@
 package top.lixb.base.module_main.viewmodel;
 
-import android.content.Context;
+import top.lixb.libcommon.binding.BindingViewModel;
 
-import top.lixb.libcommon.base.BaseViewModel;
-
-public class ItemViewModel extends BaseViewModel {
+public class ItemViewModel extends BindingViewModel {
 
     private String mTitle;
 

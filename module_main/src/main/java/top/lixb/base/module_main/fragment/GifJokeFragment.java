@@ -5,12 +5,10 @@ import android.os.Bundle;
 
 import top.lixb.base.module_main.R;
 import top.lixb.base.module_main.databinding.FragmentGifjokeBinding;
-import top.lixb.base.module_main.databinding.FragmentTextjokeBinding;
 import top.lixb.base.module_main.viewmodel.GifJokeViewModel;
-import top.lixb.base.module_main.viewmodel.TextJokeViewModel;
-import top.lixb.libcommon.base.BaseFragment;
+import top.lixb.libcommon.binding.AbsBindingFragment;
 
-public class GifJokeFragment extends BaseFragment<FragmentGifjokeBinding,GifJokeViewModel> {
+public class GifJokeFragment extends AbsBindingFragment<FragmentGifjokeBinding,GifJokeViewModel> {
 
     public static GifJokeFragment newInstance() {
         Bundle args = new Bundle();

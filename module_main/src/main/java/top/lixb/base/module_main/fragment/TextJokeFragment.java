@@ -2,16 +2,13 @@ package top.lixb.base.module_main.fragment;
 
 
 import android.os.Bundle;
-import android.text.Html;
 
 import top.lixb.base.module_main.R;
-import top.lixb.base.module_main.databinding.FragmentPicjokeBinding;
 import top.lixb.base.module_main.databinding.FragmentTextjokeBinding;
-import top.lixb.base.module_main.viewmodel.PicJokeViewModel;
 import top.lixb.base.module_main.viewmodel.TextJokeViewModel;
-import top.lixb.libcommon.base.BaseFragment;
+import top.lixb.libcommon.binding.AbsBindingFragment;
 
-public class TextJokeFragment extends BaseFragment<FragmentTextjokeBinding,TextJokeViewModel> {
+public class TextJokeFragment extends AbsBindingFragment<FragmentTextjokeBinding,TextJokeViewModel> {
 
     public static TextJokeFragment newInstance() {
         Bundle args = new Bundle();

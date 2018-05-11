@@ -7,11 +7,11 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 import top.lixb.base.module_update.databinding.ActivityUpdateBinding;
 import top.lixb.base.module_update.viewmodel.UpdateViewModel;
-import top.lixb.libcommon.base.BaseActivity;
+import top.lixb.libcommon.binding.AbsBindingActivity;
 import top.lixb.libsrc.router.RouteTable;
 
 @Route(path = RouteTable.updateIndex)
-public class UpdateActivity extends BaseActivity<ActivityUpdateBinding,UpdateViewModel> {
+public class UpdateActivity extends AbsBindingActivity<ActivityUpdateBinding,UpdateViewModel> {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

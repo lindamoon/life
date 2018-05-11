@@ -1,18 +1,17 @@
 package top.lixb.life.viewmodel;
 
-import android.content.Context;
 import android.support.annotation.Nullable;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
-import top.lixb.libcommon.base.BaseViewModel;
+import top.lixb.libcommon.binding.BindingViewModel;
 import top.lixb.libsrc.Constants;
 import top.lixb.libsrc.bean.AppUpdateBean;
 import top.lixb.libsrc.helper.AppUpdateHelper;
 import top.lixb.libsrc.helper.UserHelper;
 import top.lixb.libsrc.router.RouteTable;
 
-public class SplashViewModel extends BaseViewModel {
+public class SplashViewModel extends BindingViewModel {
 
     @Override
     public void onCreate() {

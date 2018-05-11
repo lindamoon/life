@@ -15,6 +15,8 @@
         android:src="@mipmap/common_back"/>
 
     <TextView
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:textStyle="bold"
         android:gravity="center"
         android:id="@+id/common_base_tv_title"
@@ -22,6 +24,8 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:text="标题"
+        android:lines="1"
+        android:ellipsize="end"
         android:textColor="@color/txt_color_white"
         android:textSize="16dp"
         />

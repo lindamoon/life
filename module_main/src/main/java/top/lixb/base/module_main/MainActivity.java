@@ -16,13 +16,12 @@ import java.util.List;
 import top.lixb.base.module_main.databinding.ActivityMainBinding;
 import top.lixb.base.module_main.fragment.HomeFragment;
 import top.lixb.base.module_main.viewmodel.HomeViewModel;
-import top.lixb.libcommon.base.BaseActivity;
+import top.lixb.libcommon.binding.AbsBindingActivity;
 import top.lixb.libsrc.router.RouteTable;
-import top.lixb.base.module_main.BR;
 
 
 @Route(path = RouteTable.mainHome)
-public class MainActivity extends BaseActivity<ActivityMainBinding,HomeViewModel> implements OnTabSelectListener {
+public class MainActivity extends AbsBindingActivity<ActivityMainBinding,HomeViewModel> implements OnTabSelectListener {
 
     private List<Fragment> mFragments = new ArrayList(){
         {

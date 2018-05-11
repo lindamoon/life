@@ -26,25 +26,25 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:visibility="@{item.answerIsTrueOrFalse?View.GONE:View.VISIBLE}"
+            android:visibility="@{item.option1.length()>1?View.VISIBLE:View.GONE}"
             android:text="@{item.option1}"
             android:textSize="14dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
-            android:visibility="@{item.answerIsTrueOrFalse?View.GONE:View.VISIBLE}"
+            android:visibility="@{item.option2.length()>1?View.VISIBLE:View.GONE}"
             android:text="@{item.option2}"
             android:textSize="14dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
-            android:visibility="@{item.answerIsTrueOrFalse?View.GONE:View.VISIBLE}"
+            android:visibility="@{item.option3.length()>1?View.VISIBLE:View.GONE}"
             android:text="@{item.option3}"
             android:textSize="14dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
-            android:visibility="@{item.answerIsTrueOrFalse?View.GONE:View.VISIBLE}"
+            android:visibility="@{item.option4.length()>1?View.VISIBLE:View.GONE}"
             android:text="@{item.option4}"
             android:textSize="14dp"
             android:layout_width="match_parent"
@@ -53,7 +53,7 @@
         <Button
             android:text='@{item.showanser?"隐藏答案":"显示答案"}'
             android:padding="5dp"
-            android:onClick="@{item.changeShowanser}"
+            android:onClick="@{item::changeShowanser}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
