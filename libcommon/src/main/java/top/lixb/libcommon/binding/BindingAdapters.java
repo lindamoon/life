@@ -32,11 +32,9 @@ public class BindingAdapters {
 
     @BindingAdapter("imageUrl")
     public static void setImageUrl(ImageView iv, String url) {
-        if (!TextUtils.isEmpty(url)&&url.toLowerCase().endsWith(".gif")) {
-            GlideApp.with(iv).asGif().load(url).into(iv);
-        } else {
+
             GlideApp.with(iv).load(url).into(iv);
-        }
+
     }
 
 
