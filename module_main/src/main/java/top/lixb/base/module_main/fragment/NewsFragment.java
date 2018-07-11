@@ -17,7 +17,7 @@ public class NewsFragment extends AbsBindingFragment<FragmentNewToutiaoBinding,T
     }
 
     @Override
-    protected int initLayout() {
+    protected int getLayout() {
         return R.layout.fragment_new_toutiao;
     }
 

@@ -17,7 +17,7 @@ public class DriverexamFragment extends AbsBindingFragment<FragmentDriverexamBin
     }
 
     @Override
-    protected int initLayout() {
+    protected int getLayout() {
         return R.layout.fragment_driverexam;
     }
 

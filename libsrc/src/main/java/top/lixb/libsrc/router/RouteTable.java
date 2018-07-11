@@ -29,4 +29,5 @@ public class RouteTable {
     public static final String mainApi = "/main/api";
     public static final String mainWeb = "/main/web";
 
+    public static final String stockWeb = "/stock/web";
 }

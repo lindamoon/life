@@ -30,7 +30,7 @@ public abstract class AbsBindingFragment<V extends ViewDataBinding, VM extends B
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mBind = DataBindingUtil.inflate(inflater, initLayout(),container, false);
+        mBind = DataBindingUtil.inflate(inflater, getLayout(),container, false);
         initBinding(mBind);
         return mBind.getRoot();
     }
@@ -41,9 +41,13 @@ public abstract class AbsBindingFragment<V extends ViewDataBinding, VM extends B
         return tClass;
     }
 
-    protected abstract int initLayout();
 
     protected abstract void initBinding(V bind);
+
+    @Override
+    protected void initView(View view) {
+
+    }
 
     @Override
     public void onDestroyView() {

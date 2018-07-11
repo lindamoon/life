@@ -18,7 +18,7 @@ public class PicJokeFragment extends AbsBindingFragment<FragmentPicjokeBinding,P
 
 
     @Override
-    protected int initLayout() {
+    protected int getLayout() {
         return R.layout.fragment_picjoke;
     }
 

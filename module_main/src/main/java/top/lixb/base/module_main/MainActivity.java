@@ -43,7 +43,6 @@ public class MainActivity extends AbsBindingActivity<ActivityMainBinding,HomeVie
         setSwipeBackEnable(false);
         initViewPager();
         initBottomBar();
-
     }
 
     private void initBottomBar() {

@@ -73,4 +73,9 @@ public class BaseActivity extends SwipeBackActivity {
         mTitle.setText(title);
     }
 
+    @SuppressWarnings("unchecked")
+    protected <T extends View> T $(int id) {
+        return (T)findViewById(id);
+    }
+
 }

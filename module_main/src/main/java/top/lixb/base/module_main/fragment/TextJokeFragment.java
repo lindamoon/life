@@ -19,7 +19,7 @@ public class TextJokeFragment extends AbsBindingFragment<FragmentTextjokeBinding
 
 
     @Override
-    protected int initLayout() {
+    protected int getLayout() {
         return R.layout.fragment_textjoke;
     }
 

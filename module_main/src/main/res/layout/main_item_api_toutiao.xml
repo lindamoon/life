@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
-
         <variable
             name="item"
             type="top.lixb.libsrc.bean.ToutiaoNewsBean.ResultBean.DataBean" />

@@ -19,7 +19,7 @@ public class GifJokeFragment extends AbsBindingFragment<FragmentGifjokeBinding,G
 
 
     @Override
-    protected int initLayout() {
+    protected int getLayout() {
         return R.layout.fragment_gifjoke;
     }
 

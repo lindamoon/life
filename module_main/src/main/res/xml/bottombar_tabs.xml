@@ -2,11 +2,17 @@
 <tabs xmlns:android="http://schemas.android.com/apk/res/android">
     <tab
         id="@+id/tab_0"
-        title="主页" />
+        title="主页"
+        icon="@mipmap/home"
+        />
     <tab
         id="@+id/tab_1"
-        title="其他" />
+        title="其他"
+        icon="@mipmap/other"
+        />
     <tab
         id="@+id/tab_2"
-        title="个人中心" />
+        title="个人中心"
+        icon="@mipmap/personal"
+        />
 </tabs>

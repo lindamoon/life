@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:binding="http://schemas.android.com/apk/res-auto">
+
     <data>
         <variable
             name="home"
@@ -8,27 +10,69 @@
     </data>
 
 
-    <LinearLayout
-        android:orientation="vertical"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:text="@={home.txt}"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <EditText
-            android:text="@={home.txt}"
-            android:hint="输入内容"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                android:id="@+id/srl"
+                binding:onloadmoreListener="@{home.loadmoreListener}"
+                binding:onrefreshListener="@{home.refreshListener}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <Button
-            android:text="api"
-            android:onClick="@{home::clickToApi}"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+                <com.scwang.smartrefresh.layout.header.ClassicsHeader
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:srlAccentColor="#333333"
+                    app:srlPrimaryColor="@color/white" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </android.support.v7.widget.RecyclerView>
+
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@={home.txt}" />-->
+
+        <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:hint="输入内容"-->
+            <!--android:text="@={home.txt}" />-->
+
+        <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="@{home::clickToApi}"-->
+            <!--android:text="api" />-->
+
+        <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="@{home::clickToStocklog}"-->
+            <!--android:text="操作日志" />-->
+
+
+    <!--</LinearLayout>-->
 
 </layout>
